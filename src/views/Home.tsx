@@ -1,5 +1,6 @@
 import { useOpenConnectModal } from "@0xsequence/kit";
 import { useDisconnect, useAccount } from "wagmi";
+import { useSignTypedData } from "wagmi";
 
 import "./Home.css";
 
@@ -34,23 +35,22 @@ const App = () => {
     </>
   );
 
+  const { signTypedData } = useSignTypedData();
+
+  const onSignTypedData = () => {
+    signTypedData({
+      // account: wallet.account as Account,
+      // domain: signData.domain as any,
+      // types: signData.types as any,
+      // primaryType: signData.primaryType,
+      // message: signData.value,
+    });
+  };
+
   return (
     <div>
-      <h1>Sequence Kit Starter</h1>
       {isConnected ? <Connected /> : <Disconnected />}
-      <footer>
-        Want to learn more? Read the{" "}
-        <a
-          href={
-            "https://docs.sequence.xyz/solutions/wallets/sequence-kit/overview/"
-          }
-          target="_blank"
-          rel="noreferrer "
-        >
-          docs
-        </a>
-        !
-      </footer>
+      <button onClick={() => onSignTypedData()}>Sign message</button>
     </div>
   );
 };
