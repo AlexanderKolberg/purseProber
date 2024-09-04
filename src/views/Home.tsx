@@ -50,13 +50,13 @@ const Home = () => {
     };
 
     const onSignTypedData = async () => {
-        const url = "http://localhost:4422/amoy/rpc/Marketplace/GenerateListingTransaction"
+        const url = "https://dev-marketplace-api.sequence.app/amoy/rpc/Marketplace/GenerateListingTransaction"
 
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlIjoic2VydmljZSJ9.q7MlRax_5OJAZGrkc9fzlewdBMC5WCdbQ-KtYaqkzwU",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "X-Access-Key": "AQAAAAAAAAHz7AVY4j_zT_2RNiFws80Kt00"
             },
             body: JSON.stringify({
                 "collectionAddress": "0xbb92fdb23b41c1f47f01691a0aa6e747fab36847", // potato collection
@@ -92,13 +92,13 @@ const Home = () => {
     };
 
     const CreateListing = async () => {
-        const url = "http://localhost:4422/amoy/rpc/Marketplace/Execute"
+        const url = "https://dev-marketplace-api.sequence.app/amoy/rpc/Marketplace/Execute"
 
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXJ2aWNlIjoic2VydmljZSJ9.q7MlRax_5OJAZGrkc9fzlewdBMC5WCdbQ-KtYaqkzwU",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "X-Access-Key": "AQAAAAAAAAHz7AVY4j_zT_2RNiFws80Kt00"
             },
             body: JSON.stringify({
                 "signature": signature,
